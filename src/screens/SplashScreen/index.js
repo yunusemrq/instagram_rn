@@ -1,12 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 export const SplashScreen = () => {
   const navigation = useNavigation();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('WelcomePage');
+      navigation.replace('AuthStack');
     }, 3000);
   }, []);
   return (
@@ -15,8 +15,12 @@ export const SplashScreen = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'white',
       }}>
-      <Text style={{fontSize: 34}}>SPLASH SCREEN</Text>
+      <Image
+        style={{width: 100, height: 100}}
+        source={require('../../assets/images/instagram_logo.png')}
+      />
     </View>
   );
 };
