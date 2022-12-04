@@ -2,15 +2,17 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {COLORS} from '../../themes/config';
 
-export const MyTextInput = ({label, value, onChangeText}) => {
+export const MyTextInput = props => {
+  const {label, value, onChangeText, style, password, phone} = props;
   return (
     <>
       <TextInput
-        style={styles.text_input}
+        style={[styles.text_input, style]}
         placeholderTextColor={COLORS.mediumGray}
         placeholder={label}
         value={value}
         onChangeText={onChangeText}
+        secureTextEntry={password}
       />
     </>
   );
@@ -21,7 +23,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.lightGray,
     borderRadius: 6,
     marginBottom: 6,
-    paddingHorizontal: 8,
+    paddingHorizontal: 14,
     height: 46,
   },
 });
