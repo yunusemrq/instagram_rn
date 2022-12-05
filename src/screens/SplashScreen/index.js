@@ -1,12 +1,17 @@
 import {useNavigation} from '@react-navigation/native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, Text, View} from 'react-native';
 
 export const SplashScreen = () => {
+  const [isAuth, setIsAuth] = useState(true);
   const navigation = useNavigation();
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('AuthStack');
+      if (isAuth) {
+        navigation.replace('HomeStack');
+      } else {
+        navigation.replace('AuthStack');
+      }
     }, 3000);
   }, []);
   return (
